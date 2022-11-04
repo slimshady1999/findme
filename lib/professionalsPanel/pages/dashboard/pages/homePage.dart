@@ -1,0 +1,186 @@
+import 'package:findme/professionalsPanel/customWidgets/homePageWidgets/activitiesWidget.dart';
+import "package:flutter/material.dart";
+import '../../../customWidgets/homePageWidgets/servicesWidget.dart';
+
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // Top Section //
+
+            Padding(
+              padding: const EdgeInsets.only(top: 30.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(children: [
+                    const Padding(
+                      padding: EdgeInsets.only(left: 8.0),
+                      child: CircleAvatar(
+                        radius: 20,
+                        backgroundImage:
+                            AssetImage("images/icons/userface.jpg"),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Text("Hey, how you feeling",
+                                  style: Theme.of(context).textTheme.bodyText1),
+                              const Padding(
+                                padding: EdgeInsets.only(left: 3.0),
+                                child: Icon(Icons.waving_hand,
+                                    color: Color.fromARGB(255, 200, 181, 2),
+                                    size: 20),
+                              )
+                            ],
+                          ),
+                          const Text("Emmanual Joseph")
+                        ],
+                      ),
+                    )
+                  ]),
+                  Row(
+                    children: [
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.notifications_active,
+                              size: 21.5)),
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.chat, size: 21.5)),
+                    ],
+                  )
+                ],
+              ),
+            ),
+
+            // SearchBar Section //
+            const SizedBox(height: 30),
+            Padding(
+              padding: const EdgeInsets.only(left: 15, right: 15),
+              child: TextFormField(
+                decoration: InputDecoration(
+                  prefixIcon: const Icon(Icons.search),
+                  hintText: ("search"),
+                  suffixIcon: const Icon(Icons.handyman,
+                      size: 20.5, color: Colors.deepPurple),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: const BorderSide(
+                          color: Color.fromARGB(255, 180, 179, 179))),
+                ),
+              ),
+            ),
+
+            // Activities//
+
+            const SizedBox(height: 27),
+
+            activityWidget(context),
+
+            const SizedBox(height: 25),
+            // Special Offers Section //
+            Padding(
+              padding: const EdgeInsets.only(left: 10.0, right: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text("Special Offers",
+                      style:
+                          TextStyle(fontSize: 17, fontWeight: FontWeight.bold)),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text("See All",
+                        style: TextStyle(
+                          color: Colors.deepPurple,
+                          fontSize: 15,
+                          // fontWeight: FontWeight.bold
+                        )),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              height: MediaQuery.of(context).size.height / 4.3,
+              width: MediaQuery.of(context).size.width / 1.2,
+              decoration: BoxDecoration(
+                  color: Colors.deepPurple,
+                  borderRadius: BorderRadius.circular(20),
+                  image: const DecorationImage(
+                      // fit: BoxFit.cover,
+                      alignment: Alignment.topRight,
+                      image: AssetImage(
+                        "images/illus/illus4.png",
+                      ))),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 6.0, top: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text("30% OFF",
+                        style: TextStyle(
+                          fontSize: 40,
+                          color: Colors.white,
+                        )),
+                    SizedBox(height: 5),
+                    Text("Today's Special!",
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        )),
+                    SizedBox(height: 10),
+                    SizedBox(
+                      height: 50,
+                      width: 120,
+                      child: Text("Get 30% off on all cleaning jobs today!",
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.white,
+                          )),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            // Services Section //
+
+            Padding(
+              padding: const EdgeInsets.only(left: 10.0, right: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text("Services",
+                      style:
+                          TextStyle(fontSize: 17, fontWeight: FontWeight.bold)),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text("See All",
+                        style: TextStyle(
+                          color: Colors.deepPurple,
+                          fontSize: 15,
+                          // fontWeight: FontWeight.bold
+                        )),
+                  )
+                ],
+              ),
+            ),
+
+            serviceWidget(context)
+          ],
+        ),
+      ),
+    );
+  }
+}
